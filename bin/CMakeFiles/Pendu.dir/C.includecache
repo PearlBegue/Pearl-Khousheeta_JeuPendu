@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/khousheeta/Desktop/pendu_siteduzero/pendu/include/dico.h
+
+/home/khousheeta/Desktop/pendu_siteduzero/pendu/src/dico.c
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+string.h
+-
+../include/dico.h
+/home/khousheeta/Desktop/pendu_siteduzero/pendu/include/dico.h
+
+/home/khousheeta/Desktop/pendu_siteduzero/pendu/src/main.c
+stdio.h
+-
+stdlib.h
+-
+ctype.h
+-
+string.h
+-
+../include/dico.h
+/home/khousheeta/Desktop/pendu_siteduzero/pendu/include/dico.h
+

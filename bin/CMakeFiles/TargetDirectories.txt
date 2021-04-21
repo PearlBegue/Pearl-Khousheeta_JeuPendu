@@ -1,0 +1,3 @@
+/home/khousheeta/Desktop/pendu_siteduzero/pendu/bin/CMakeFiles/rebuild_cache.dir
+/home/khousheeta/Desktop/pendu_siteduzero/pendu/bin/CMakeFiles/Pendu.dir
+/home/khousheeta/Desktop/pendu_siteduzero/pendu/bin/CMakeFiles/edit_cache.dir
