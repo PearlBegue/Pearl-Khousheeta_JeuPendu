@@ -86,7 +86,7 @@ On cherche les mots hosaires pour l'interloguteur,tout en savoir la tailles du m
 
     lettreTrouvee = malloc(tailleMot * sizeof(int)); // On alloue dynamiquement le tableau lettreTrouvee (dont on ne connaissait pas la taille au départ)
 ```
-###Quatrieme Etape
+### Quatrieme Etape
 On fait un loop pour savoir si on bien prit un mots
 Aucun mots choisie
 ```sh
@@ -144,7 +144,7 @@ Il va seulement indiquez sur l'ecran le mots secret ou la lettre apres le boucle
         return 0;
 }
 ```
-###Cinqeme Etape
+### Cinqeme Etape
 On peut accepter les majuscule ou les minuscule durant la proposition des lettres.
 ```sh
 char lireCaractere()
@@ -160,7 +160,7 @@ char lireCaractere()
     return caractere; // On retourne le premier caractère qu'on a lu
 }
 ```
-###Sixeme Etape
+### Sixeme Etape
 Ici qu'on verifie si la lettre correspond au mots ou le mots que l'interlocuteur a mis et retourne bonne lettre ou mot
 ```sh
 int gagne(int lettreTrouvee[], long tailleMot)
