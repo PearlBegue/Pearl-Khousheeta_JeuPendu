@@ -73,6 +73,8 @@ A inisialiser tout les comptes a zero ou ou nombre necessaire
     long i = 0; // Une petite variable pour parcourir les tableaux
     long tailleMot = 0;
 ```
+### Troiseme Etape
+On cherche les mots hosaires pour l'interloguteur,tout en savoir la tailles du mots, si c'est facile,moyenn ou diffcile
 ```sh
 
     printf("Bienvenue dans le Pendu !\n\n");
@@ -83,14 +85,25 @@ A inisialiser tout les comptes a zero ou ou nombre necessaire
     tailleMot = strlen(motSecret);
 
     lettreTrouvee = malloc(tailleMot * sizeof(int)); // On alloue dynamiquement le tableau lettreTrouvee (dont on ne connaissait pas la taille au départ)
+```
+###Quatrieme Etape
+On fait un loop pour savoir si on bien prit un mots
+Aucun mots choisie
+```sh
     if (lettreTrouvee == NULL)
         exit(0);
-
+```
+Un mot a ete choisit
+```sh
     for (i = 0 ; i < tailleMot ; i++)
         lettreTrouvee[i] = 0;
+```
 
-    // On continue à jouer tant qu'il reste au moins un coup à jouer ou qu'on
-    // n'a pas gagné
+La boucle pour continue a jouer apres un echouement d'essai.
+
+// On continue à jouer tant qu'il reste au moins un coup à jouer ou qu'on
+// n'a pas gagné
+```sh
     while (coupsRestants > 0 && !gagne(lettreTrouvee, tailleMot))
     {
         printf("\n\nIl vous reste %ld coups a jouer", coupsRestants);
@@ -105,6 +118,9 @@ A inisialiser tout les comptes a zero ou ou nombre necessaire
             else
                 printf("_"); // Sinon, on affiche under score pour les lettres non trouvées
         }
+```
+Ici on demand a l'interloguteur de propose des lettre ou mots d'essai
+```sh
 
         printf("\nProposez une lettre : ");
         lettre = lireCaractere();
@@ -115,8 +131,9 @@ A inisialiser tout les comptes a zero ou ou nombre necessaire
             coupsRestants--; // On enlève un coup au joueur
         }
     }
-
-
+```
+Il va seulement indiquez sur l'ecran le mots secret ou la lettre apres le boucle de verification
+```sh
     if (gagne(lettreTrouvee, tailleMot))
         printf("\n\nGagne ! Le mot secret etait bien : %s\n\n", motSecret);
     else
@@ -126,8 +143,10 @@ A inisialiser tout les comptes a zero ou ou nombre necessaire
 
         return 0;
 }
-
-
+```
+###Cinqeme Etape
+On peut accepter les majuscule ou les minuscule durant la proposition des lettres.
+```sh
 char lireCaractere()
 {
     char caractere = 0;
@@ -140,8 +159,10 @@ char lireCaractere()
 
     return caractere; // On retourne le premier caractère qu'on a lu
 }
-
-
+```
+###Sixeme Etape
+Ici qu'on verifie si la lettre correspond au mots ou le mots que l'interlocuteur a mis et retourne bonne lettre ou mot
+```sh
 int gagne(int lettreTrouvee[], long tailleMot)
 {
     long i = 0;
@@ -176,10 +197,10 @@ int rechercheLettre(char lettre, char motSecret[], int lettreTrouvee[])
 ```
 
 ## Collaborateur 
-
-Sur ce projet les collaborateur sont:
-- Pearl Begue
-- Khousheeta Jebodh
+La proprietaire est:
+Pearl Begue
+Collaborateur est :
+Khousheeta Jebodh
 
 
 
