@@ -45,7 +45,7 @@ L'execution
 On a fait l'execution sur terminal vous pouvez le faire sur sublime text.
 
 ## Comment Utiliser
-##MAIN.C
+## MAIN.C
 ### Premiere Etape
 Mettre les declaration 
 ```sh
