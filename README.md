@@ -159,7 +159,26 @@ char lireCaractere()
 
     return caractere; // On retourne le premier caractère qu'on a lu
 }
-```
+'''
+### Sixeme Etape
+C'est la fonction pour recevoir des indices.
+```sh
+char hint(char z)
+{
+    char caractere = 0;
+
+    caractere = z;
+    caractere = toupper(caractere);
+
+
+    while (getchar() != '\n') ;
+
+    return caractere;
+}
+'''
+
+'''sh
+
 ### Sixeme Etape
 Ici qu'on verifie si la lettre correspond au mots ou le mots que l'interlocuteur a mis et retourne bonne lettre ou mot
 ```sh
