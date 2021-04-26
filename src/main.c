@@ -20,6 +20,8 @@ int gagne(int lettreTrouvee[], long tailleMot);
 int rechercheLettre(char lettre, char motSecret[], int lettreTrouvee[]);
 char lireCaractere();
 
+char hint(char z);
+
 int main(int argc, char* argv[])
 {
     char lettre = 0; // Stocke la lettre proposée par l'utilisateur (retour du scanf)
@@ -28,6 +30,7 @@ int main(int argc, char* argv[])
     long coupsRestants = 10; // Compteur de coups restants (0 = mort)
     long i = 0; // Une petite variable pour parcourir les tableaux
     long tailleMot = 0;
+    char z;
 
     printf("Bienvenue dans le Pendu !\n\n");
 
@@ -60,8 +63,32 @@ int main(int argc, char* argv[])
                 printf("_"); // Sinon, on affiche under score pour les lettres non trouvées
         }
 
-        printf("\nProposez une lettre : ");
-        lettre = lireCaractere();
+        char indice[50];
+
+            
+
+                                printf("\nVoudriez vous avoir un indice [y/n] : ");
+                                scanf("%s",indice);
+
+                                if(strcmp(indice,"y") == 0)
+                                {
+                                    z = motSecret[rand()% tailleMot];
+                                    //printf("Hint : %c \n", z);
+                                    //on revoie la valeur de z a lettre
+                                    lettre = hint(z);
+                                   // printf("%c\n", lettre);
+
+                                }
+
+                                else if(strcmp(indice,"n") == 0)
+                                {
+                                        do 
+                                        {
+                                            printf("Entrer uniquement des alphabets : ");
+                                            lettre = lireCaractere();
+                                        }while((isalpha(lettre) == 0));
+                                    
+                                }
 
         // Si ce n'était PAS la bonne lettre
         if (!rechercheLettre(lettre, motSecret, lettreTrouvee))
@@ -85,14 +112,28 @@ int main(int argc, char* argv[])
 char lireCaractere()
 {
     char caractere = 0;
+    while (getchar() != '\n') ;
 
     caractere = getchar(); // On lit le premier caractère
     caractere = toupper(caractere); // On met la lettre en majuscule si elle ne l'est pas déjà
 
     // On lit les autres caractères mémorisés un à un jusqu'à l'\n
-    while (getchar() != '\n') ;
+    
 
     return caractere; // On retourne le premier caractère qu'on a lu
+}
+
+char hint(char z)
+{
+    char caractere = 0;
+
+    caractere = z;
+    caractere = toupper(caractere);
+
+
+    while (getchar() != '\n') ;
+
+    return caractere;
 }
 
 
