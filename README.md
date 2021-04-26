@@ -60,6 +60,8 @@ int gagne(int lettreTrouvee[], long tailleMot);
 int rechercheLettre(char lettre, char motSecret[], int lettreTrouvee[]);
 char lireCaractere();
 
+char hint(charz);
+
 int main(int argc, char* argv[])
 ```
 ### Deuixeme Etape
@@ -119,14 +121,36 @@ La boucle pour continue a jouer apres un echouement d'essai.
                 printf("_"); // Sinon, on affiche under score pour les lettres non trouvées
         }
 ```
-Ici on demand a l'interloguteur de propose des lettre ou mots d'essai
+Ici on demand a l'interloguteur de propose des lettre ou mots d'essai et on demadera au joueur s'il veut un indice.
 ```sh
+        char indice[50];
 
-        printf("\nProposez une lettre : ");
-        lettre = lireCaractere();
+            
 
-        // Si ce n'était PAS la bonne lettre
-        if (!rechercheLettre(lettre, motSecret, lettreTrouvee))
+                                printf("\nVoudriez vous avoir un indice [y/n] : ");
+                                scanf("%s",indice);
+
+                                if(strcmp(indice,"y") == 0)
+                                {
+                                    z = motSecret[rand()% tailleMot];
+                                    //printf("Hint : %c \n", z);
+                                    //on revoie la valeur de z a lettre
+                                    lettre = hint(z);
+                                   // printf("%c\n", lettre);
+
+                                }
+
+                                else if(strcmp(indice,"n") == 0)
+                                {
+                                        do 
+                                        {
+                                            printf("Entrer uniquement des alphabets : ");
+                                            lettre = lireCaractere();
+                                        }while((isalpha(lettre) == 0));
+                                    
+                                }
+         // Si ce n'est pas labonne lette
+         if (!rechercheLettre(lettre, motSecret, lettreTrouvee))
         {
             coupsRestants--; // On enlève un coup au joueur
         }
@@ -159,11 +183,9 @@ char lireCaractere()
 
     return caractere; // On retourne le premier caractère qu'on a lu
 }
-'''
+```
 ### Sixeme Etape
-C'est la fonction pour recevoir des indices.
-```sh
-char hint(char z)
+Ceci est la fonction pour recevoir les indices.
 {
     char caractere = 0;
 
@@ -176,10 +198,7 @@ char hint(char z)
     return caractere;
 }
 '''
-
-'''sh
-
-### Sixeme Etape
+### Setieme Etape
 Ici qu'on verifie si la lettre correspond au mots ou le mots que l'interlocuteur a mis et retourne bonne lettre ou mot
 ```sh
 int gagne(int lettreTrouvee[], long tailleMot)
